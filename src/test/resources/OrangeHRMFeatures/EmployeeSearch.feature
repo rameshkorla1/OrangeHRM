@@ -1,3 +1,4 @@
+@EmployeeSearch
 Feature: Employee Search
 
 Scenario: HR manager searches for an employee by name

@@ -40,7 +40,7 @@ public class DriverManager {
 			options.setExperimentalOption("prefs",prefs);
 			//System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver_win32\\chromedriver.exe");
 		
-			WebDriverManager.chromedriver().setup();
+			//WebDriverManager.chromedriver().setup();
 			tlDriver.set(new ChromeDriver(options));
 		}
 		else if(browser.equals("firefox"))
