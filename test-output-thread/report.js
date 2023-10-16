@@ -1,58 +1,36 @@
 $(document).ready(function() {
 CucumberHTML.timelineItems.pushArray([
   {
-    "id": "782c2c9a-cc7f-4059-bb86-6ed96bbe7f6e",
-    "feature": "User Login",
-    "scenario": "User login without providing credentials",
-    "start": 1686149046608,
+    "id": "e4cb89a5-8d34-417b-9009-163957aa5442",
+    "feature": "Employee Search",
+    "scenario": "HR manager searches for an employee by name",
+    "start": 1697473045120,
     "group": 1,
     "content": "",
-    "tags": "@userlogin,",
-    "end": 1686149116415,
+    "tags": "@employeesearch,",
+    "end": 1697473066402,
     "className": "passed"
   },
   {
-    "id": "6b529c2f-a267-47f8-8ebc-cc59d5572399",
-    "feature": "User Login",
-    "scenario": "User login with valid credentials",
-    "start": 1686148918365,
+    "id": "f3961a1e-b08e-48e9-b787-9e75c8636423",
+    "feature": "Employee Search",
+    "scenario": "HR manager receives no results for the given search criteria",
+    "start": 1697473071778,
     "group": 1,
     "content": "",
-    "tags": "@userlogin,",
-    "end": 1686148991564,
+    "tags": "@employeesearch,",
+    "end": 1697473076072,
     "className": "passed"
   },
   {
-    "id": "c0578b46-6a60-420e-a351-e8f19cda32a9",
-    "feature": "User Login",
-    "scenario": "User login with missing password",
-    "start": 1686149154088,
+    "id": "9d475a85-cafe-4cc2-bdea-fb467364ee9a",
+    "feature": "Employee Search",
+    "scenario": "HR manager searches for an employee by employee ID",
+    "start": 1697473066446,
     "group": 1,
     "content": "",
-    "tags": "@userlogin,",
-    "end": 1686149190952,
-    "className": "passed"
-  },
-  {
-    "id": "4393b028-f813-4fba-b511-9bd8f9f6040d",
-    "feature": "User Login",
-    "scenario": "User login with missing username",
-    "start": 1686149116430,
-    "group": 1,
-    "content": "",
-    "tags": "@userlogin,",
-    "end": 1686149154070,
-    "className": "passed"
-  },
-  {
-    "id": "4149cdd3-3639-4e09-bb00-6c4dd8b9f6d8",
-    "feature": "User Login",
-    "scenario": "User login with invalid credentials",
-    "start": 1686148991579,
-    "group": 1,
-    "content": "",
-    "tags": "@userlogin,",
-    "end": 1686149046597,
+    "tags": "@employeesearch,",
+    "end": 1697473071754,
     "className": "passed"
   }
 ]);

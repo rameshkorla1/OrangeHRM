@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Automation Report</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jun 7, 2023 08:11:57 PM</span></a>
+<a href="#"><span class="badge badge-primary">Oct 16, 2023 09:47:22 PM</span></a>
 </li>
 </ul>
 </div>
@@ -79,7 +79,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@Userlogin</a>
+<a class="dropdown-item" href="#">@EmployeeSearch</a>
 </ul>
 </li>
 </ul>
@@ -90,9 +90,9 @@
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">User Login</p>
+            <p class="name">Employee Search</p>
             <p class="text-sm">
-              <span>8:11:58 PM</span> / <span>00:04:32:475</span>
+              <span>9:47:25 PM</span> / <span>00:00:30:774</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -100,10 +100,10 @@
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-pass">User Login</h5>
-<span class='badge badge-success'>06.07.2023 8:11:58 PM</span>
-<span class='badge badge-danger'>06.07.2023 8:16:30 PM</span>
-<span class='badge badge-default'>00:04:32:475</span>
+<h5 class="test-status text-pass">Employee Search</h5>
+<span class='badge badge-success'>10.16.2023 9:47:25 PM</span>
+<span class='badge badge-danger'>10.16.2023 9:47:56 PM</span>
+<span class='badge badge-default'>00:00:30:774</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -115,7 +115,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>User login with valid credentials</div>
+        <div class="node" id="2"><span class="badge log pass-bg mr-2">Pass</span>HR manager searches for an employee by name</div>
           <div class="status-avatar float-right mr-4">
             <i class="fa fa-paperclip"></i>
           </div>
@@ -123,8 +123,8 @@
     </div>
         <div class="collapse">
           <div class="card-body">
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_is_on_the_orange_hrm_login_page()">
-                <span>Given User is on the OrangeHRM login page</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeCreationSteps.user_is_logged_as_an_hr_manager()">
+                <span>Given User is logged as an HR manager</span>
       <div>
       </div>
               </div>
@@ -139,8 +139,8 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_enter_valid_credentials()">
-                <span>When User enter valid credentials</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.user_is_on_the_employee_search_page()">
+                <span>And User is on the employee search page</span>
       <div>
       </div>
               </div>
@@ -155,8 +155,8 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.click_on_the_login_button()">
-                <span>And click on the Login button</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.user_enters_the_name_of_an_employee_in_the_search_field()">
+                <span>When User enters the name of an employee in the search field</span>
       <div>
       </div>
               </div>
@@ -171,8 +171,8 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_should_be_redirected_to_the_dashboard()">
-                <span>Then User should be redirected to the dashboard</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.click_on_the_search_button()">
+                <span>And click on the Search button</span>
       <div>
       </div>
               </div>
@@ -187,22 +187,8 @@
       <div>
       </div>
               </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="15"><span class="badge log pass-bg mr-2">Pass</span>User login with invalid credentials</div>
-          <div class="status-avatar float-right mr-4">
-            <i class="fa fa-paperclip"></i>
-          </div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_is_on_the_orange_hrm_login_page()">
-                <span>Given User is on the OrangeHRM login page</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.user_should_see_a_list_of_matching_employees_based_on_the_search_criteria()">
+                <span>Then User should see a list of matching employees based on the search criteria</span>
       <div>
       </div>
               </div>
@@ -217,8 +203,22 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_enter_invalid_credentials()">
-                <span>When User enter invalid credentials</span>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="17"><span class="badge log pass-bg mr-2">Pass</span>HR manager searches for an employee by employee ID</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeCreationSteps.user_is_logged_as_an_hr_manager()">
+                <span>Given User is logged as an HR manager</span>
       <div>
       </div>
               </div>
@@ -233,8 +233,8 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.click_on_the_login_button()">
-                <span>And click on the Login button</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.user_is_on_the_employee_search_page()">
+                <span>And User is on the employee search page</span>
       <div>
       </div>
               </div>
@@ -249,8 +249,8 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_should_see_an_error_message()">
-                <span>Then User should see an error message</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.user_enters_the_employee_id_in_the_search_field()">
+                <span>When User enters the employee ID in the search field</span>
       <div>
       </div>
               </div>
@@ -265,22 +265,8 @@
       <div>
       </div>
               </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="28"><span class="badge log pass-bg mr-2">Pass</span>User login without providing credentials</div>
-          <div class="status-avatar float-right mr-4">
-            <i class="fa fa-paperclip"></i>
-          </div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_is_on_the_orange_hrm_login_page()">
-                <span>Given User is on the OrangeHRM login page</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.click_on_the_search_button()">
+                <span>And click on the Search button</span>
       <div>
       </div>
               </div>
@@ -295,8 +281,8 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_click_on_the_login_button_without_providing_credentials()">
-                <span>When User click on the Login button without providing credentials</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.user_should_see_a_list_of_matching_employees_based_on_the_search_criteria()">
+                <span>Then User should see a list of matching employees based on the search criteria</span>
       <div>
       </div>
               </div>
@@ -311,8 +297,22 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_should_see_an_error_message()">
-                <span>Then User should see an error message</span>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="32"><span class="badge log pass-bg mr-2">Pass</span>HR manager receives no results for the given search criteria</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeCreationSteps.user_is_logged_as_an_hr_manager()">
+                <span>Given User is logged as an HR manager</span>
       <div>
       </div>
               </div>
@@ -327,22 +327,8 @@
       <div>
       </div>
               </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="39"><span class="badge log pass-bg mr-2">Pass</span>User login with missing username</div>
-          <div class="status-avatar float-right mr-4">
-            <i class="fa fa-paperclip"></i>
-          </div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_is_on_the_orange_hrm_login_page()">
-                <span>Given User is on the OrangeHRM login page</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.user_is_on_the_employee_search_page()">
+                <span>And User is on the employee search page</span>
       <div>
       </div>
               </div>
@@ -357,8 +343,8 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_enter_the_password_without_providing_a_username()">
-                <span>When User enter the password without providing a username</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.user_enters_a_search_criteria_that_does_not_match_any_employees()">
+                <span>When User enters a search criteria that does not match any employees</span>
       <div>
       </div>
               </div>
@@ -373,8 +359,8 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.click_on_the_login_button()">
-                <span>And click on the Login button</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.click_on_the_search_button()">
+                <span>And click on the Search button</span>
       <div>
       </div>
               </div>
@@ -389,8 +375,8 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_should_see_an_error_message()">
-                <span>Then User should see an error message</span>
+              <div class="step pass-bg" title="com.orangehrm.steps.EmployeeSearchSteps.user_should_see_an_appropriate_message_indicating_that_no_employees_were_found()">
+                <span>Then User should see an appropriate message indicating that no employees were found</span>
       <div>
       </div>
               </div>
@@ -399,84 +385,6 @@
       <div>
           <div class="row mb-3"><div class="col-md-3">
 <img data-featherlight='../embedded15.png' src="../embedded15.png">
-    
-    </div></div>
-</div>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="52"><span class="badge log pass-bg mr-2">Pass</span>User login with missing password</div>
-          <div class="status-avatar float-right mr-4">
-            <i class="fa fa-paperclip"></i>
-          </div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_is_on_the_orange_hrm_login_page()">
-                <span>Given User is on the OrangeHRM login page</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="AFTER_STEP">
-                <span>com.orangehrm.hooks.AppHooks.stepScreenshot(io.cucumber.java.Scenario)</span>
-      <div>
-          <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='../embedded16.png' src="../embedded16.png">
-    
-    </div></div>
-</div>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_enter_the_username_without_providing_a_password()">
-                <span>When User enter the username without providing a password</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="AFTER_STEP">
-                <span>com.orangehrm.hooks.AppHooks.stepScreenshot(io.cucumber.java.Scenario)</span>
-      <div>
-          <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='../embedded17.png' src="../embedded17.png">
-    
-    </div></div>
-</div>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.click_on_the_login_button()">
-                <span>And click on the Login button</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="AFTER_STEP">
-                <span>com.orangehrm.hooks.AppHooks.stepScreenshot(io.cucumber.java.Scenario)</span>
-      <div>
-          <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='../embedded18.png' src="../embedded18.png">
-    
-    </div></div>
-</div>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="com.orangehrm.steps.UserLoginSteps.user_should_see_an_error_message()">
-                <span>Then User should see an error message</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="AFTER_STEP">
-                <span>com.orangehrm.hooks.AppHooks.stepScreenshot(io.cucumber.java.Scenario)</span>
-      <div>
-          <div class="row mb-3"><div class="col-md-3">
-<img data-featherlight='../embedded19.png' src="../embedded19.png">
     
     </div></div>
 </div>
@@ -509,15 +417,15 @@
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>5</span>
+<span class='badge log pass-bg'>3</span>
 </span>
-<p class="name">@Userlogin</p>
-<p class="duration text-sm">5 tests</p>
+<p class="name">@EmployeeSearch</p>
+<p class="duration text-sm">3 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@Userlogin</h4>
-<span status="pass" class='badge log pass-bg'>5 passed</span>
+<h4>@EmployeeSearch</h4>
+<span status="pass" class='badge log pass-bg'>3 passed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -530,51 +438,31 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>20:11:58 PM</td>
+<td>21:47:25 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='2'>User login with valid credentials</a>
+<a href="#" class="linked" test-id='1' id='2'>HR manager searches for an employee by name</a>
 <div class="">
-<span class="badge badge-default">User Login.User login with valid credentials</span>
+<span class="badge badge-default">Employee Search.HR manager searches for an employee by name</span>
 </div>
 </td>
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>20:13:11 PM</td>
+<td>21:47:46 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='15'>User login with invalid credentials</a>
+<a href="#" class="linked" test-id='1' id='17'>HR manager searches for an employee by employee ID</a>
 <div class="">
-<span class="badge badge-default">User Login.User login with invalid credentials</span>
+<span class="badge badge-default">Employee Search.HR manager searches for an employee by employee ID</span>
 </div>
 </td>
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>20:14:06 PM</td>
+<td>21:47:51 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='28'>User login without providing credentials</a>
+<a href="#" class="linked" test-id='1' id='32'>HR manager receives no results for the given search criteria</a>
 <div class="">
-<span class="badge badge-default">User Login.User login without providing credentials</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>20:15:16 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='39'>User login with missing username</a>
-<div class="">
-<span class="badge badge-default">User Login.User login with missing username</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>20:15:54 PM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='52'>User login with missing password</a>
-<div class="">
-<span class="badge badge-default">User Login.User login with missing password</span>
+<span class="badge badge-default">Employee Search.HR manager receives no results for the given search criteria</span>
 </div>
 </td>
 </tr>
@@ -595,13 +483,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jun 7, 2023 08:11:57 PM</h3>
+<h3>Oct 16, 2023 09:47:22 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jun 7, 2023 08:16:30 PM</h3>
+<h3>Oct 16, 2023 09:47:56 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -652,7 +540,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>5</b> scenarios passed</small></div>
+<div><small data-tooltip='100%'><b>3</b> scenarios passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -672,7 +560,7 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='100%'><b>38</b> steps passed</small></div>
+<div><small data-tooltip='100%'><b>30</b> steps passed</small></div>
 <div>
 <small data-tooltip='0%'><b>0</b> steps failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
@@ -691,7 +579,7 @@
 </div></div>
 <script>
 var timeline = {
-"User Login":272.475
+"Employee Search":30.774
 };
 </script>
 <div class="row">
@@ -701,8 +589,8 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@Userlogin</td>
-<td>5</td>
+<td>@EmployeeSearch</td>
+<td>3</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>
@@ -719,20 +607,20 @@ var timeline = {
 <thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
 <tbody>
 <tr>
-<td>ApplicationName</td>
-<td>Orange HRM</td>
-</tr>
-<tr>
-<td>OS</td>
-<td>windows</td>
-</tr>
-<tr>
 <td>Build</td>
 <td>1.1</td>
 </tr>
 <tr>
 <td>User</td>
 <td>Ramesh Korla</td>
+</tr>
+<tr>
+<td>ApplicationName</td>
+<td>Orange HRM</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>windows</td>
 </tr>
 </tbody>
 </table></div>
@@ -748,13 +636,13 @@ failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 5,
+passChild: 3,
 failChild: 0,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 38,
+passGrandChild: 30,
 failGrandChild: 0,
 warningGrandChild: 0,
 skipGrandChild: 0,
