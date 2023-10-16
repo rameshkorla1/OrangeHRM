@@ -110,6 +110,7 @@ public class orangehrmActions {
 	
 	// Wait for element to appear
 		public void waitForElementToAppear(By elementBy) {
+			wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(elementBy));
 			highLightElement(elementBy);
 		}
