@@ -24,9 +24,6 @@ public class AppHooks {
 	private ConfigFileReader configReader;
 	Properties prop;
 	
-	
-	
-	
 	@Before(order=0)
 	public void getProperty() throws IOException
 	{
@@ -37,7 +34,7 @@ public class AppHooks {
 	@Before(order=1)
 	public void launchBrowser()
 	{
-		String browserName = prop.getProperty("browser");
+		String browserName = System.getProperty("browser")!=null ? System.getProperty("browser") :prop.getProperty("browser");
 		driverFactory = new DriverManager();
 		driver=driverFactory.init_driver(browserName);
 	}	
