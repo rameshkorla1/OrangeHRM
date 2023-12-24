@@ -24,9 +24,6 @@ public class AppHooks {
 	private ConfigFileReader configReader;
 	Properties prop;
 	
-	
-	
-	
 	@Before(order=0)
 	public void getProperty() throws IOException
 	{

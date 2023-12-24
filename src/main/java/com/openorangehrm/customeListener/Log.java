@@ -1,8 +1,6 @@
 package com.openorangehrm.customeListener;
 
 
-import java.io.IOException;
-
 import org.apache.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -54,7 +52,7 @@ public class Log extends TestListenerAdapter implements ITestListener{
          Log.warn(message);
          ExtentTestManager.getTest().log(Status.WARNING, message);
             }
-     public static void error(String message) {
+    /* public static void error(String message) {
         Log.error(message);
         ExtentTestManager.getTest().log(Status.ERROR, message);
      }
@@ -66,7 +64,7 @@ public class Log extends TestListenerAdapter implements ITestListener{
     public static void debug(String message) {
         Log.debug(message);
         ExtentTestManager.getTest().log(Status.DEBUG, message);
-      }
+      } */
     public void onStart(ITestContext context) {
         System.out.println("*** Test Suite " + context.getName() + " started ***");
     }
@@ -90,12 +88,7 @@ public class Log extends TestListenerAdapter implements ITestListener{
         System.out.println("*** Test execution " + result.getMethod().getMethodName() + " failed...");
         ExtentTestManager.getTest().log(Status.FAIL, "Test Failed");
         String temp = Screenshot.captureScreen(DriverManager.getDriver(), result.getName());
-        try {
-			ExtentTestManager.getTest().fail("Test Failed", MediaEntityBuilder.createScreenCaptureFromPath(temp).build());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+        ExtentTestManager.getTest().fail("Test Failed", MediaEntityBuilder.createScreenCaptureFromPath(temp).build());
     }
     public void onTestSkipped(ITestResult result) {
         System.out.println("*** Test " + result.getMethod().getMethodName() + " skipped...");
