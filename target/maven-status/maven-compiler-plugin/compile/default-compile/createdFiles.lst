@@ -3,9 +3,9 @@ com\openorangehrm\customeListener\Log.class
 com\openorangehrm\actions\DriverManager.class
 com\openorangehrm\utilities\Screenshot.class
 com\openoragehrm\pages\DashBoardPage.class
+com\openorangehrm\reports\ExtentManager.class
 com\openorangehrm\utilities\ConfigFileReader.class
 com\openoragehrm\pages\LoginPage.class
 com\openorangehrm\actions\orangehrmActions$1.class
 com\openorangehrm\actions\orangehrmActions.class
-com\openoragehrm\ExtentManager.class
-com\openoragehrm\ExtentTestManager.class
+com\openorangehrm\reports\ExtentTestManager.class

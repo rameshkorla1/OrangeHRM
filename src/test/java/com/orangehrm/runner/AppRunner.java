@@ -8,7 +8,6 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		stepNotifications = true,
-		tags="@EmployeeSearch",
 		features = "src/test/resources/OrangeHRMFeatures",
 		glue= {"com.orangehrm.steps","com.orangehrm.hooks"},
 				plugin= {"pretty", 
