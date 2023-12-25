@@ -4,11 +4,8 @@ concurrency:
   cancel-in-progress: false
 
 on:
-#  push:
-#    branches:
-#      - 'feature/test-workflow'
   schedule:
-    - cron:  '0 0 * * 5'
+    - cron: '0 0 * * 5'
   workflow_dispatch:
     inputs:
       tag:
@@ -16,10 +13,10 @@ on:
         description: tag
         required: false
         options:
-        - ALL_TESTS
-        - EmployeeCreation
-        - EmployeeSearch
-        - UserLogin
+          - ALL_TESTS
+          - EmployeeCreation
+          - EmployeeSearch
+          - UserLogin
 
 permissions:
   contents: read
@@ -30,26 +27,24 @@ jobs:
   checkout:
     runs-on: self-hosted
     steps:
+      - name: Set PowerShell Execution Policy
+        run: Set-ExecutionPolicy RemoteSigned -Scope Process
       - name: Add to PATH
-        run: |
-          echo 'C:\Program Files\Git\bin' | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        run: echo 'C:\Program Files\Git\bin' | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       - uses: actions/checkout@master
         with:
           sparse-checkout: OrangeHRM
 
   run:
-    runs-on: self-hosted 
+    runs-on: self-hosted
     needs: checkout
     steps:
       - id: run-tests
         working-directory: OrangeHRM
         run: |
-          if("${{inputs.tag}}" -eq "ALL_TESTS")
-          {
+          if("${{inputs.tag}}" -eq "ALL_TESTS") {
             mvn clean verify
-          }
-          else
-          {
+          } else {
             mvn clean verify -D"cucumber.feature=./src/test/resources/OrangeHRMFeatures" -D"cucumber.filter.tags=@${{inputs.tag}}"
           }
 
@@ -74,9 +69,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}ExtentHtml.html
     steps:
+      - name: Set PowerShell Execution Policy
+        run: Set-ExecutionPolicy RemoteSigned -Scope Process
       - name: Add to PATH
-        run: |
-          echo 'C:\Program Files\Git\bin' | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        run: echo 'C:\Program Files\Git\bin' | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
