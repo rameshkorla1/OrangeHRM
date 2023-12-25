@@ -7,81 +7,19 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    - cron:  '0 0 * * 5'
-  workflow_dispatch:
-    inputs:
-      tag:
-        type: choice
-        description: tag
-        required: false
-        options:
-        - ALL_TESTS
-        - EmployeeCreation
-        - EmployeeSearch
-        - UserLogin
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
 jobs:
-  checkout:
-    runs-on: LAPTOP-F8VFH2TR
-    steps:
-      - name: Add to PATH
-        run: |
-          echo 'C:\Program Files\Git\bin' | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-      - uses: actions/checkout@master
-        with:
-          sparse-checkout: OrangeHRM
-  run:
-    runs-on: LAPTOP-F8VFH2TR 
-    needs: checkout
-    steps:
-      - id: run-tests
-        working-directory: OrangeHRM
-        run: |
-          if("${{inputs.tag}}" -eq "ALL_TESTS")
-          {
-            mvn clean verify
-          }
-          else
-          {
-            mvn clean verify -D"cucumber.feature=./src/test/resources/features" -D"cucumber.filter.tags=@${{inputs.tag}}"
-          }
+  build:
+    runs-on: ubuntu-latest
 
-      - id: copy-files
-        working-directory: OrangeHRM
-        run: |
-          (Get-Content ${{env.FILE1}}) -replace 'http://',"https://" | Out-File -Encoding UTF8 ${{env.FILE1}}
-          (Get-Content ${{env.FILE1}}) -replace "href=`"#!`"","href=`"ExtentPdf.pdf`"" | Out-File -Encoding UTF8 ${{env.FILE1}}
-          New-Item -ItemType Directory -Force -Path 'github-pages'
-          Copy-Item ${{env.FILE1}} -Destination github-pages -force
-          Copy-Item ${{env.FILE2}} -Destination github-pages -force
-          Copy-Item ${{env.FILE3}} -Destination github-pages -force
-        env:
-          FILE1: 'HtmlReport\ExtentHtml.html'
-          FILE2: 'PdfReport\ExtentPdf.pdf'
-          FILE3: 'Reports\Spark.html'
-
-  deploy:
-    needs: run
-    runs-on: LAPTOP-F8VFH2TR
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}ExtentHtml.html
     steps:
-      - name: Add to PATH
-        run: |
-          echo 'C:\Program Files\Git\bin' | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: OrangeHRM/github-pages
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+    - name: Check out code
+      uses: actions/checkout@v2
 
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: 11
+        distribution: 'adopt'
+
+    - name: Build with Maven
+      run: mvn clean verify
