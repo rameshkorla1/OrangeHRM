@@ -38,7 +38,7 @@ jobs:
     needs: checkout
     steps:
       - id: run-tests
-        working-directory: OrangeHRM
+        #working-directory: OrangeHRM
         run: |
           if("${{inputs.tag}}" -eq "ALL_TESTS") {
             mvn clean verify
@@ -47,7 +47,7 @@ jobs:
           }
 
       - id: copy-files
-        working-directory: OrangeHRM
+        #working-directory: OrangeHRM
         run: |
           (Get-Content ${{env.FILE1}}) -replace 'http://',"https://" | Out-File -Encoding UTF8 ${{env.FILE1}}
           (Get-Content ${{env.FILE1}}) -replace "href=`"#!`"","href=`"ExtentPdf.pdf`"" | Out-File -Encoding UTF8 ${{env.FILE1}}
