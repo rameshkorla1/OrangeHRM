@@ -54,11 +54,9 @@ jobs:
           New-Item -ItemType Directory -Force -Path 'github-pages'
           Copy-Item ${{env.FILE1}} -Destination github-pages -force
           Copy-Item ${{env.FILE2}} -Destination github-pages -force
-          Copy-Item ${{env.FILE3}} -Destination github-pages -force
         env:
           FILE1: 'HtmlReport\ExtentHtml.html'
           FILE2: 'PdfReport\ExtentPdf.pdf'
-          FILE3: 'Reports\Spark.html'
 
   deploy:
     needs: run
