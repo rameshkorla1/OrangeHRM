@@ -1,0 +1,80 @@
+name: hrm-automation
+concurrency:
+  group: main
+  cancel-in-progress: false
+
+on:
+  schedule:
+    - cron: '0 0 * * 5'
+  workflow_dispatch:
+    inputs:
+      tag:
+        type: choice
+        description: tag
+        required: false
+        options:
+          - ALL_TESTS
+          - EmployeeCreation
+          - EmployeeSearch
+          - UserLogin
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  checkout:
+    runs-on: self-hosted
+    steps:
+      - name: Add to PATH
+        run: echo 'C:\Program Files\Git\bin' | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - uses: actions/checkout@master
+        with:
+          path: OrangeHRM
+
+  run:
+    runs-on: self-hosted
+    needs: checkout
+    steps:
+      - id: run-tests
+        #working-directory: OrangeHRM
+        run: |
+          if("${{inputs.tag}}" -eq "ALL_TESTS") {
+            mvn clean verify
+          } else {
+            mvn clean verify -D"cucumber.feature=./src/test/resources/OrangeHRMFeatures" -D"cucumber.filter.tags=@${{inputs.tag}}"
+          }
+
+      - id: copy-files
+        #working-directory: OrangeHRM
+        run: |
+          (Get-Content ${{env.FILE1}}) -replace 'http://',"https://" | Out-File -Encoding UTF8 ${{env.FILE1}}
+          (Get-Content ${{env.FILE1}}) -replace "href=`"#!`"","href=`"ExtentPdf.pdf`"" | Out-File -Encoding UTF8 ${{env.FILE1}}
+          New-Item -ItemType Directory -Force -Path 'github-pages'
+          Copy-Item ${{env.FILE1}} -Destination github-pages -force
+          Copy-Item ${{env.FILE2}} -Destination github-pages -force
+        env:
+          FILE1: 'HtmlReport\ExtentHtml.html'
+          FILE2: 'PdfReport\ExtentPdf.pdf'
+
+  deploy:
+    needs: run
+    runs-on: self-hosted
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}ExtentHtml.html
+    steps:
+      - name: Set PowerShell Execution Policy
+        run: Set-ExecutionPolicy RemoteSigned -Scope Process
+      - name: Add to PATH
+        run: echo 'C:\Program Files\Git\bin' | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: OrangeHRM/github-pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
