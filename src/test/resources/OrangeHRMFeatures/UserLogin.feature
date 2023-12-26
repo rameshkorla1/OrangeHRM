@@ -1,4 +1,4 @@
-@Userlogin
+@UserLogin
 Feature: User Login
 
 Scenario: User login with valid credentials
