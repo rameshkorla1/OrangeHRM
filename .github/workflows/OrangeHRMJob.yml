@@ -27,20 +27,18 @@ jobs:
   checkout:
     runs-on: self-hosted
     steps:
-      - name: Set PowerShell Execution Policy
-        run: Set-ExecutionPolicy RemoteSigned -Scope Process
       - name: Add to PATH
         run: echo 'C:\Program Files\Git\bin' | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       - uses: actions/checkout@master
         with:
-          sparse-checkout: OrangeHRM
+          path: OrangeHRM
 
   run:
     runs-on: self-hosted
     needs: checkout
     steps:
       - id: run-tests
-        #working-directory: 
+        working-directory: OrangeHRM
         run: |
           if("${{inputs.tag}}" -eq "ALL_TESTS") {
             mvn clean verify
@@ -49,7 +47,7 @@ jobs:
           }
 
       - id: copy-files
-        #working-directory: 
+        working-directory: OrangeHRM
         run: |
           (Get-Content ${{env.FILE1}}) -replace 'http://',"https://" | Out-File -Encoding UTF8 ${{env.FILE1}}
           (Get-Content ${{env.FILE1}}) -replace "href=`"#!`"","href=`"ExtentPdf.pdf`"" | Out-File -Encoding UTF8 ${{env.FILE1}}
