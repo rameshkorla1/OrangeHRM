@@ -31,14 +31,14 @@ jobs:
         run: echo 'C:\Program Files\Git\bin' | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
       - uses: actions/checkout@master
         with:
-          path: OrangeHRM
+          path: OrangeHRM2
 
   run:
     runs-on: self-hosted
     needs: checkout
     steps:
       - id: run-tests
-        #working-directory: OrangeHRM
+        working-directory: OrangeHRM2
         run: |
           if("${{inputs.tag}}" -eq "ALL_TESTS") {
             mvn clean verify
@@ -47,7 +47,7 @@ jobs:
           }
 
       - id: copy-files
-        #working-directory: OrangeHRM
+        working-directory: OrangeHRM2
         run: |
           (Get-Content ${{env.FILE1}}) -replace 'http://',"https://" | Out-File -Encoding UTF8 ${{env.FILE1}}
           (Get-Content ${{env.FILE1}}) -replace "href=`"#!`"","href=`"ExtentPdf.pdf`"" | Out-File -Encoding UTF8 ${{env.FILE1}}
@@ -74,7 +74,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: OrangeHRM/github-pages
+          path: OrangeHRM2/github-pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
