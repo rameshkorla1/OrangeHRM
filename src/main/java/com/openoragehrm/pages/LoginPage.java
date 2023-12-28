@@ -43,6 +43,7 @@ public class LoginPage extends orangehrmActions{
 	
 	public void clickOnLogin()
 	{
+		waitToElementLoad(5);
 		click(LoginBtn, "Login Button");
 		//javaScriptClick(LoginBtn, "Click on the Login Button", "LoginButton");
 	}
