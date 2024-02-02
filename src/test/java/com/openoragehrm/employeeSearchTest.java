@@ -2,6 +2,7 @@ package com.openoragehrm;
 
 import java.io.IOException;
 
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -23,7 +24,6 @@ public class employeeSearchTest extends DriverManager {
 		initDriver();
 		getDriver().get(prop.getProperty("AppUrl"));
 		getDriver().manage().window().maximize();
-        //Thread.sleep(4000);
 	}
 	
 	@Test
@@ -34,16 +34,23 @@ public class employeeSearchTest extends DriverManager {
 		loginPage.Username("Admin");
 		loginPage.Password("admin123");
 		loginPage.clickOnLogin();
-		Thread.sleep(5000);
+		pimpage.waitToElementLoad(3);
 		Screenshot.testName="PIM";
 		loginPage.clickOnPIM();
-		Thread.sleep(2000);
+		pimpage.waitToElementLoad(3);
 		loginPage.verifyPIMText();	
 		pimpage =new PIMPage(getDriver());
 		Screenshot.testName="PIM";
-		Thread.sleep(3000);
+		pimpage.waitToElementLoad(3);
 		pimpage.employeeSearch("0070");
-		Thread.sleep(3000);
+		pimpage.waitToElementLoad(3);
+		pimpage.editRecord();
+	}
+	
+	@AfterTest
+	public void tearDown()
+	{
+		getDriver().quit();
 	}
 
 }

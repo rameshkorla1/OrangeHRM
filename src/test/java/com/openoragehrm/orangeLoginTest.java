@@ -2,14 +2,13 @@ package com.openoragehrm;
 
 import java.io.IOException;
 
-import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.openoragehrm.pages.LoginPage;
 import com.openorangehrm.actions.DriverManager;
-import com.openorangehrm.actions.orangehrmActions;
 import com.openorangehrm.utilities.Screenshot;
 
 
@@ -37,6 +36,12 @@ public class orangeLoginTest extends DriverManager{
 		loginPage.clickOnLogin();
 		Thread.sleep(3000);
 		loginPage.verifyDashBoardText();
+	}
+	
+	@AfterTest
+	public void tearDown()
+	{
+		getDriver().quit();
 	}
 
 }

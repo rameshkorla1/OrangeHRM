@@ -14,7 +14,8 @@ import io.cucumber.junit.CucumberOptions;
 						 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 				         "timeline:test-output-thread/",
 				         "rerun:target/failedRerun.txt"
-				 }, monochrome = true
+				 }, monochrome = true,
+				 tags="@EmployeeCreation"
 		)
 public class AppRunner {
 
