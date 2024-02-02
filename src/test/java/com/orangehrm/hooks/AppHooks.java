@@ -41,7 +41,7 @@ public class AppHooks {
 	@After(order=0)
 	public void quitBrowser()
 	{	
-		driver.quit();
+//		driver.quit();
 //		sendToEmail sendEmail = new sendToEmail();
 //		sendEmail.emailSending();
 		
